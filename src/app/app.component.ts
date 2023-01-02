@@ -12,7 +12,7 @@ import { DataService } from './data.service';
 })
 export class AppComponent implements OnInit {
   title = 'netflix-clone';
-  baseURL = 'http://api.themoviedb.org/3';
+  baseURL = 'https://api.themoviedb.org/3';
   imgPath = 'https://image.tmdb.org/t/p/original/';
 
   isSticky: any;
