@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;800;900&display=swap");
+
+body {
+  padding: 0%;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.main-page {
+  background-color: #131313;
+}
+
+.spacer {
+  width: 93%;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+.justify-content-around {
+  justify-content: space-around;
+}
+
+.flex-direction-column {
+  flex-direction: column;
+}
+.flex-direction-row {
+  flex-direction: row;
+}
+
+.align-center {
+  align-items: center;
+}

@@ -1,0 +1,28 @@
+<div class="slider">
+  <h2>{{ title }}</h2>
+  <swiper
+    [loop]="true"
+    [navigation]="true"
+    [breakpoints]="{
+      '640': {
+        slidesPerView: 4,
+        spaceBetween: 20
+      },
+      '768': {
+        slidesPerView: 4,
+        spaceBetween: 30
+      },
+      '1024': {
+        slidesPerView: 8,
+        spaceBetween: 30
+      }
+    }"
+    class="mySwiper"
+  >
+    <ng-template swiperSlide *ngFor="let x of passData">
+      <div class="slider-main">
+        <img [src]="imgPath + x.poster_path" [alt]="x.title" />
+      </div>
+    </ng-template>
+  </swiper>
+</div>
