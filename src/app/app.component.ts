@@ -1,4 +1,10 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  OnInit,
+  Directive,
+  ElementRef,
+} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { request } from './request';
@@ -11,6 +17,7 @@ import { DataService } from './data.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  @Directive({ selector: 'img' })
   title = 'netflix-clone';
   baseURL = 'https://api.themoviedb.org/3';
   imgPath = 'https://image.tmdb.org/t/p/original/';
@@ -27,10 +34,22 @@ export class AppComponent implements OnInit {
   topRated = '';
   trending = '';
 
+  loader = true;
+
   homePageMovie: any;
   homeBackgroundImg: any;
 
-  constructor(private http: HttpClient, private dataService: DataService) {}
+  constructor(
+    private http: HttpClient,
+    private dataService: DataService,
+    { nativeElement }: ElementRef<HTMLImageElement>
+  ) {
+    const supports = 'loading' in HTMLImageElement.prototype;
+
+    if (supports) {
+      nativeElement.setAttribute('loading', 'lazy');
+    }
+  }
 
   ngOnInit(): void {
     this.apiData();
@@ -89,7 +108,8 @@ export class AppComponent implements OnInit {
       const random = Math.floor(Math.random() * data.length);
       this.homePageMovie = data[random];
       this.homeBackgroundImg = this.homePageMovie?.backdrop_path;
-      console.log(res.actionMovies);
+
+      this.loader = false;
     });
   }
 }

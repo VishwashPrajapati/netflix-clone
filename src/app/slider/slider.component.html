@@ -2,6 +2,9 @@
   <h2>{{ title }}</h2>
   <swiper
     [loop]="true"
+    [slidesPerView]="3"
+    [lazy]="true"
+    [spaceBetween]="10"
     [navigation]="true"
     [breakpoints]="{
       '640': {

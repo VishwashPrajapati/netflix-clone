@@ -1,4 +1,10 @@
-<div class="main-page">
+<div class="loader" *ngIf="loader">
+  <div class="spinner">
+    <h1>hello</h1>
+  </div>
+</div>
+
+<div class="main-page" *ngIf="!loader">
   <div
     *ngIf="homeBackgroundImg"
     class="main-section"
@@ -13,12 +19,15 @@
             <div class="logo">
               <img src="../assets/logo.png" alt="logo" />
             </div>
-            <div class="nav-links flex">
+            <!-- <div class="nav-links flex">
               <div>Home</div>
               <div>TV Shows</div>
               <div>Movies</div>
               <div>New & Popular</div>
               <div>My List</div>
+              <div>Browse by Language</div>
+            </div> -->
+            <div class="nav-links flex">
               <div>Browse by Language</div>
             </div>
           </div>

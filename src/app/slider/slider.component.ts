@@ -17,5 +17,6 @@ export class SliderComponent implements OnInit {
 
   @Input() passData: any;
   @Input() title: any;
+
   ngOnInit(): void {}
 }
